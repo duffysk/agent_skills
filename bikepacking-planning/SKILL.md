@@ -3,16 +3,16 @@ name: bikepacking-route-planner
 description: >-
   Plan multi-day European river/rail bikepacking routes for a fixed group of
   6 fit road cyclists riding loaded panniers. USE FOR: proposing or vetting a
-cycle tour, building a day-by-day stage plan with stage and total distances,
-producing an elevation profile for the whole route and for each stage,
-providing downloadable GPX tracks for the whole route and each stage,
-checking that stages end near bookable accommodation, validating that the
-start and finish are reachable by train, estimating realistic daily
-distances, suggesting sightseeing and natural/historical points of interest
-along the way, comparing candidate routes (e.g. Main-Radweg vs Drauradweg),
-self-verifying the plan with an LLM-as-judge pass, or sanity-checking route
-length and elevation claims. DO NOT USE FOR: single-day rides, mountain-bike
-/ gravel technical routing, or trips where lodging is camping/self-supported.
+  cycle tour, building a day-by-day stage plan with stage and total distances,
+  producing an elevation profile for the whole route and for each stage,
+  providing downloadable GPX tracks for the whole route and each stage,
+  checking that stages end near bookable accommodation, validating that the
+  start and finish are reachable by train, estimating realistic daily
+  distances, suggesting sightseeing and natural/historical points of interest
+  along the way, comparing candidate routes (e.g. Main-Radweg vs Drauradweg),
+  self-verifying the plan with an LLM-as-judge pass, or sanity-checking route
+  length and elevation claims. DO NOT USE FOR: single-day rides, mountain-bike
+  / gravel technical routing, or trips where lodging is camping/self-supported.
 ---
 
 # Bikepacking Route Planner
