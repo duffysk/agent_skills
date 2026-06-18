@@ -174,8 +174,17 @@ For each generated GPX file (master and every stage), confirm and record:
 - **Provenance recorded.** Note the source the track was derived from and the
   measured length, so the file is auditable.
 
+**Reference GPX files as local paths, not auto-linkable URLs.** Store the files in a
+sibling `<route-slug>-gpx/` folder and write each reference as an **inline-code
+relative path** (e.g. `` `drauradweg-gpx/01-brixen-lienz.gpx` ``), **not** as a bare
+Markdown link `[GPX](drauradweg-gpx/01-brixen-lienz.gpx)`. A bare relative path that
+looks like `host/path` gets auto-linked by many Markdown renderers into a dead
+`https://drauradweg-gpx/…` URL ("can't reach this page"), which makes a perfectly
+valid local file look hallucinated. Add a short note stating these are local files in
+the sibling folder and how to open them (komoot/Garmin/any GPX app).
+
 State the verification result (length measured, endpoints OK) beside each GPX
-link. Treat unverified or failing files the same as a missing GPX.
+reference. Treat unverified or failing files the same as a missing GPX.
 7. **Validate the rail bookends.** Confirm departure-city → start and finish →
    return-city train connections, journey times, the resulting travel-day
    count, and the **6-bike reservation** requirement.
@@ -229,9 +238,13 @@ Rubric (each criterion 0–5, plus a verdict):
     historical highlight.
 11. **GPX availability & correctness** — a master GPX plus per-stage GPX files
     are **generated, saved, and verified** (valid track, correct endpoints,
-    length within ±5 % of the stated stage km). Linking unverified third-party
-    tracks without generating/checking files cannot score above 3/5; invented
-    URLs are an automatic Fail.
+    length within ±5 % of the stated stage km). **Re-open every referenced file
+    from disk during the judge pass** and re-measure it; a reference whose file is
+    missing or whose length contradicts the table is a Fail. Each reference must be
+    a local **inline-code relative path** in the sibling `<route-slug>-gpx/` folder,
+    not a bare auto-linkable path that renders as a dead `https://…` URL. Linking
+    unverified third-party tracks without generating/checking files cannot score
+    above 3/5; invented URLs are an automatic Fail.
 12. **Not a previously-ridden route** (Donau Passau–Bratislava, Elbe
     Magdeburg–Prague, Inn St. Moritz–Passau).
 
@@ -252,9 +265,11 @@ Deliver a plan containing, in order:
 4. **Stage table** — | Day | From → To | km | Ascent/Descent | Overnight town |
    Refreshment stops | Sightseeing / POI | GPX |.
 5. **GPX downloads** — a master GPX file plus one verified GPX file per stage,
-   saved next to the plan and linked by relative path, each annotated with its
-   measured length and source. If a verified file truly can't be produced, link
-   the best source and explain how to split it (and say it's unverified).
+   saved next to the plan and referenced as an **inline-code relative path**
+   (not a clickable bare path, which renderers turn into a dead `https://…` URL),
+   each annotated with its measured length and source, plus a note that they are
+   local files and how to open them. If a verified file truly can't be produced,
+   link the best source and explain how to split it (and say it's unverified).
 6. **Per-stage detail** — for each stage, a short paragraph or mini-profile
    with its elevation sparkline and the natural/historical highlights.
 7. **Highlights & caveats** — scenery payoff, crowded sections to avoid,
@@ -278,7 +293,9 @@ Write the full plan to a Markdown (`.md`) file, not just inline chat text.
   can be read on its own without the chat.
 - **Valid Markdown.** Use real Markdown: a top-level `#` title, `##` section
   headings, GitHub-style tables for the stage table, fenced code blocks for the
-  ASCII elevation profiles, and proper `[text](url)` links for GPX/booking/rail.
+  ASCII elevation profiles, and proper `[text](url)` links for booking/rail. For
+  **local GPX files use inline-code relative paths** (`` `<route-slug>-gpx/…gpx` ``),
+  not auto-linkable bare paths that render as dead `https://…` URLs.
 - **Multiple routes.** When asked for several routes, write one file each, then
   give a short inline summary plus the list of file paths.
 - After writing, also surface the judge verdict inline so the user sees it
@@ -297,4 +314,8 @@ Write the full plan to a Markdown (`.md`) file, not just inline chat text.
 - Don't link a per-stage GPX without generating and verifying the file (valid
   track, right endpoints, length within ±5 % of the stated stage km); never
   claim an unverified or invented track is correct.
+- Don't write a local GPX file path as a bare/clickable Markdown link — renderers
+  auto-convert `route-gpx/stage.gpx` into a dead `https://route-gpx/…` URL, making a
+  valid local file look hallucinated. Use an inline-code relative path and say the
+  files are local.
 - Don't re-propose routes the group has already ridden.
