@@ -123,6 +123,33 @@ flat, dense accommodation, scenic but **not overcrowded**.
    - 1–3 suggested refreshment/sightseeing stops along the way.
    - Natural and historical points of interest on or near the stage
      (old towns, castles, gorges, lakes, vineyards, monasteries, viewpoints).
+   - **Any official route variant on the stage** (see below) — name it and say
+     which one this plan follows and why.
+
+### Official route variants (e.g. left vs right bank)
+
+Many signed long-distance routes split into **two or more official alternatives**
+for part of the way — most commonly a **left-bank and a right-bank** option along
+the river, but also valley vs hillside, scenic vs direct, or a city loop vs bypass.
+In OSM these show up as parallel signed ways/sub-relations inside the same route
+relation; on official sites they appear as named alternates.
+
+When a stretch has more than one official variant:
+
+- **Detect it.** Watch for parallel signed ways in the route relation, or alternate
+  tracks/notes on the official site (e.g. "Mosel left/right bank", "Donau Nord-/
+  Südufer"). A shortest-path stitch silently picks the shorter one — don't let that
+  hide the choice from the rider.
+- **Mention it in the plan as a real choice**, not a footnote. For the affected
+  stage, briefly give each official variant with its **distance, surface/traffic,
+  scenery, and key sights**, then state **which one this plan's GPX follows and why**
+  (e.g. quieter, shorter, more shade, better lodging, ferry-free).
+- **Keep the table honest.** The stage km and GPX must match the variant the plan
+  actually follows; if the alternative differs by more than a few km, say so, so the
+  rider who picks it knows the day changes length.
+- **Don't invent variants.** Only present alternatives that are genuinely signed/
+  official; verify each the same way as the main route.
+
 5. **Build the whole-route elevation profile.** Produce an overall profile
    across all stages (start altitude → finish altitude, total ascent/descent,
    and where the steepest sections fall). Note net up/downhill and recommend
@@ -247,6 +274,12 @@ Rubric (each criterion 0–5, plus a verdict):
     above 3/5; invented URLs are an automatic Fail.
 12. **Not a previously-ridden route** (Donau Passau–Bratislava, Elbe
     Magdeburg–Prague, Inn St. Moritz–Passau).
+13. **Official route variants surfaced** — wherever a stage has more than one
+    official alternative (e.g. left vs right bank, valley vs hillside, scenic vs
+    direct), the plan names each variant, states which one the GPX/table follows
+    and why, and the stage km matches that variant. Silently following one option
+    where the rider has a real signed choice is a Warn; misattributing distance to
+    the wrong variant is a Fail.
 
 Report a final verdict: **Approved**, **Approved with caveats**, or
 **Needs revision** (with the specific fixes required). If any hard-constraint
@@ -271,7 +304,9 @@ Deliver a plan containing, in order:
    local files and how to open them. If a verified file truly can't be produced,
    link the best source and explain how to split it (and say it's unverified).
 6. **Per-stage detail** — for each stage, a short paragraph or mini-profile
-   with its elevation sparkline and the natural/historical highlights.
+   with its elevation sparkline and the natural/historical highlights, and —
+   where one exists — the **official route variant choice** for that stage
+   (each alternative's distance/scenery, which one the GPX follows and why).
 7. **Highlights & caveats** — scenery payoff, crowded sections to avoid,
    seasonal weather notes, and which distances/elevations are estimated vs
    verified.
