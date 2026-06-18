@@ -97,6 +97,23 @@ flat, dense accommodation, scenic but **not overcrowded**.
    ends: a long outbound *and* a long return can cost two riding days. State the
    resulting riding-days count before building stages, and prefer routes whose
    start/finish minimise total transit time from/to the given cities.
+
+   **Model the two travel edges realistically (don't waste or overrun them):**
+   - **First day — usually a partial ride, not a write-off.** If the morning train
+     reaches the start town around **midday/early afternoon**, the group can comfortably
+     have lunch and still ride a **short half-stage of ~50–60 km** to the first
+     overnight that same day. Plan the start town and Day-1 overnight so this short
+     opening leg lands on a bookable town — don't burn the whole first day sitting on
+     arrival unless the transfer genuinely runs late.
+   - **Last day — a full stage almost always forces a finish-town overnight.** If the
+     final riding day is a full **~100–120 km**, the group will realistically **arrive
+     in the evening and miss any same-day train home**. Do **not** assume an "evening
+     train home after the last stage": budget an **overnight in the finish town** and
+     travel home the **next morning**. Only plan a same-day return if the last stage is
+     deliberately **short** (e.g. ≤ ~40–50 km, finishing by early afternoon) with a
+     verified connection. Surface this as a lodging night (and reserve it), and beware
+     finish towns whose lodging is scarce/expensive on the dates (festivals, fairs) —
+     prefer the previous on-route town for the overnight if so.
 1. **Clarify trip length.** Using the intake answers, compute riding days =
    total days − travel days. Riding days × ~100 km gives the target distance.
 2. **Shortlist candidate routes.** Propose 2–4 named, signed long-distance
@@ -236,9 +253,14 @@ user for transparency.
 Rubric (each criterion 0–5, plus a verdict):
 
 1. **Rail-reachable start** from the departure city (reasonable journey, bikes
-   allowed) and travel-day length accounted for.
+   allowed) and travel-day length accounted for — including whether a **midday
+   arrival allows a short ~50–60 km opening ride** to the first overnight rather
+   than wasting the whole day.
 2. **Rail-reachable finish** back to the return city (bikes allowed) and travel-
-   day length accounted for.
+   day length accounted for. **A full (~100–120 km) final stage must budget a
+   finish-town overnight + next-morning train** — assuming a same-day "evening
+   train home" after a full last day is a Fail; same-day return is only credible
+   if the last stage is deliberately short and finishes by early afternoon.
 3. **6-bike capacity / reservation** explicitly checked and flagged.
 4. **Daily distances** within the 100–120 km flat comfort range, reduced
    appropriately for climbing/terrain; no brutal or filler stages.
@@ -346,6 +368,10 @@ Write the full plan to a Markdown (`.md`) file, not just inline chat text.
 - Don't end a stage at a distance that has no realistic lodging just to hit a
   round number — move the overnight to the nearest viable town.
 - Don't ignore train bike capacity; 6 bikes is the binding limit, not the seats.
+- Don't assume an "evening train home" after a full ~100–120 km final stage — the
+  group will arrive late and miss it. Budget a **finish-town overnight + next-morning
+  train**, or make the last day deliberately short. Likewise, don't waste a midday
+  arrival on Day 1 — a ~50–60 km opening ride after lunch is usually fine.
 - Don't link a per-stage GPX without generating and verifying the file (valid
   track, right endpoints, length within ±5 % of the stated stage km); never
   claim an unverified or invented track is correct.
