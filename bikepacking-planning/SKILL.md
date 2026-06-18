@@ -165,7 +165,7 @@ For each generated GPX file (master and every stage), confirm and record:
   town and the last within ~2 km of the end town (haversine check against the
   town coordinates). For the master file, endpoints match the route start/finish.
 - **Length reconciles with the plan.** The track length (sum of haversine
-  distances between consecutive points) is within **±10 %** of the stage distance
+  distances between consecutive points) is within **±5 %** of the stage distance
   stated in the table. If it drifts more, fix the stage km, re-cut the track, or
   flag the mismatch — a GPX whose length contradicts the table is a Fail.
 - **Continuity & direction.** Points run start→finish in the intended riding
@@ -229,7 +229,7 @@ Rubric (each criterion 0–5, plus a verdict):
     historical highlight.
 11. **GPX availability & correctness** — a master GPX plus per-stage GPX files
     are **generated, saved, and verified** (valid track, correct endpoints,
-    length within ±10 % of the stated stage km). Linking unverified third-party
+    length within ±5 % of the stated stage km). Linking unverified third-party
     tracks without generating/checking files cannot score above 3/5; invented
     URLs are an automatic Fail.
 12. **Not a previously-ridden route** (Donau Passau–Bratislava, Elbe
@@ -295,6 +295,6 @@ Write the full plan to a Markdown (`.md`) file, not just inline chat text.
   round number — move the overnight to the nearest viable town.
 - Don't ignore train bike capacity; 6 bikes is the binding limit, not the seats.
 - Don't link a per-stage GPX without generating and verifying the file (valid
-  track, right endpoints, length within ±10 % of the stated stage km); never
+  track, right endpoints, length within ±5 % of the stated stage km); never
   claim an unverified or invented track is correct.
 - Don't re-propose routes the group has already ridden.
