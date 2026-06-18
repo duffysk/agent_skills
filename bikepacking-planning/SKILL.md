@@ -172,8 +172,19 @@ Rubric (each criterion 0–5, plus a verdict):
 5. **Every stage ends near bookable indoor lodging** for 6 people.
 6. **Refreshment spacing** — services roughly every 25–40 km, no long voids.
 7. **Scenic & low-traffic** character; overcrowded sections flagged/avoided.
-8. **Distance figures cross-checked** against primary sources, not a single
-   search-summary number; estimates labelled as such.
+8. **Distance figures verified against the OFFICIAL route website** (or another
+   authoritative primary source), not a single search-summary number.
+   - For every named long-distance route, locate its official site (e.g.
+     **mainradweg.com**, **drauradweg.com**, **moselradweg.de**, **eurovelo.com**,
+     the regional tourism/“Radweg” portal) — most European cycle routes publish
+     a per-stage / per-town kilometre table.
+   - Confirm the **total length** and **each stage length** against that table;
+     they must not **drift** from the official figures or be invented. If a stage
+     is split differently from the official stages, the summed sub-distances must
+     still reconcile with the official town-to-town kilometres.
+   - Any number that cannot be tied to a primary source must be **explicitly
+     labelled an estimate**, with the basis stated. A plan with unsourced or
+     drifting stage distances cannot score above 3/5 here.
 9. **Elevation profile present** for the whole route and each stage, with
    direction recommendation.
 10. **Sightseeing / POI coverage** — each stage has at least one natural or
