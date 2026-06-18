@@ -5,7 +5,8 @@ description: >-
   6 fit road cyclists riding loaded panniers. USE FOR: proposing or vetting a
   cycle tour, building a day-by-day stage plan with stage and total distances,
   producing an elevation profile for the whole route and for each stage,
-  providing downloadable GPX tracks for the whole route and each stage,
+  generating and verifying downloadable GPX tracks for the whole route and
+  each stage,
   checking that stages end near bookable accommodation, validating that the
   start and finish are reachable by train, estimating realistic daily
   distances, suggesting sightseeing and natural/historical points of interest
@@ -110,7 +111,8 @@ flat, dense accommodation, scenic but **not overcrowded**.
    - Conversely, AI/search summaries in this project have repeatedly
      **overstated** segment kilometres — always cross-check.
    - Prefer primary sources: the official route website (km per town),
-     **bikeline** guidebooks, **komoot**, or **outdooractive** elevation/length.
+     **bikeline** guidebooks, **komoot**, **outdooractive**, or **veloplanner.com**
+     (good for total/section length and elevation of named long-distance routes).
    - When unsure, give a range and label the source and its confidence.
 4. **Build the day-by-day stage plan.** For each stage list:
    - Start town → end town, stage distance (km), and elevation summary
@@ -125,20 +127,55 @@ flat, dense accommodation, scenic but **not overcrowded**.
    across all stages (start altitude → finish altitude, total ascent/descent,
    and where the steepest sections fall). Note net up/downhill and recommend
    the riding direction that maximises descent.
-6. **Provide downloadable GPX tracks.** Supply a link to a GPX/GPS track for
-   the full route and, where possible, for each individual stage, so the group
-   can load them onto a GPS head unit or phone app.
-   - Prefer official route GPX downloads (e.g. the route's own website such as
-     drauradweg.com / mainradweg.com, or the regional tourism portal).
-   - Otherwise link a reputable platform track: **komoot**, **outdooractive**,
-     **bikeline/GPSies**, **Bikemap**, or **GPX-Tour archives**; komoot lets
-     you export per-stage GPX and split a tour into day stages.
-   - Give one master GPX for the whole route plus one GPX per stage (split at
-     the chosen overnight towns). If a verified per-stage file isn't available,
-     say so and point to where the group can split the master track themselves.
-   - Only link sources you can actually cite; never invent a GPX URL. If no
-     reliable link is found, state that clearly and suggest how to generate one
-     (e.g. plot the stage in komoot and export GPX).
+6. **Generate and verify downloadable GPX tracks.** Don't stop at links —
+   wherever possible **produce an actual GPX file for the whole route and for each
+   individual stage**, save them next to the plan, and **verify each file is
+   correct** before linking it.
+   - **Obtain a master track.** Prefer the official route GPX (the route's own
+     website such as drauradweg.com / mainradweg.com, or the regional tourism
+     portal). If only an interactive map exists, export from **komoot /
+     outdooractive / veloplanner / Bikemap**. Save it as
+     `<route-slug>-gpx/00-full-route.gpx`.
+   - **Split into per-stage files at the chosen overnight towns.** Cut the master
+     track at each overnight town's coordinates into one file per stage, named
+     `<route-slug>-gpx/<NN>-<from>-<to>.gpx` (e.g. `02-brixen-lienz.gpx`). A small
+     script (e.g. Python with `gpxpy`, or `gpsbabel`) that finds the nearest track
+     point to each overnight town and slices the track is the reliable way; do the
+     split programmatically, not by hand.
+   - **Verify every generated GPX (mandatory) — see "GPX generation & verification"
+     below.** Each stage file must parse as valid GPX, start/end at the right town,
+     and its measured length must reconcile with the stage km in the table. Only
+     link a per-stage file **after** it passes; report the measured length next to
+     it.
+   - **Link with relative paths** from the plan to the saved `.gpx` files, plus the
+     original source URL for provenance. Give one master GPX plus one GPX per stage.
+   - **Fallbacks (state honestly).** If you genuinely cannot obtain or build a
+     verified track (e.g. no master GPX is reachable), say so explicitly, link the
+     best official/komoot source, and tell the group how to split it themselves —
+     **never invent a GPX URL or claim an unverified file is correct.**
+
+### GPX generation & verification
+
+For each generated GPX file (master and every stage), confirm and record:
+
+- **Valid & non-empty.** Parses as well-formed GPX/XML and contains an actual
+  track (`<trkpt>` points), not just waypoints; no large coordinate gaps that
+  signal a broken/teleporting track.
+- **Right endpoints.** The first track point is within ~2 km of the stage's start
+  town and the last within ~2 km of the end town (haversine check against the
+  town coordinates). For the master file, endpoints match the route start/finish.
+- **Length reconciles with the plan.** The track length (sum of haversine
+  distances between consecutive points) is within **±10 %** of the stage distance
+  stated in the table. If it drifts more, fix the stage km, re-cut the track, or
+  flag the mismatch — a GPX whose length contradicts the table is a Fail.
+- **Continuity & direction.** Points run start→finish in the intended riding
+  direction with monotonic-ish progression (no out-and-back artefacts from a bad
+  export); elevation, if present, is plausible (matches the profile's min/max).
+- **Provenance recorded.** Note the source the track was derived from and the
+  measured length, so the file is auditable.
+
+State the verification result (length measured, endpoints OK) beside each GPX
+link. Treat unverified or failing files the same as a missing GPX.
 7. **Validate the rail bookends.** Confirm departure-city → start and finish →
    return-city train connections, journey times, the resulting travel-day
    count, and the **6-bike reservation** requirement.
@@ -177,7 +214,8 @@ Rubric (each criterion 0–5, plus a verdict):
    - For every named long-distance route, locate its official site (e.g.
      **mainradweg.com**, **drauradweg.com**, **moselradweg.de**, **eurovelo.com**,
      the regional tourism/“Radweg” portal) — most European cycle routes publish
-     a per-stage / per-town kilometre table.
+     a per-stage / per-town kilometre table. **veloplanner.com** is a useful
+     secondary cross-check for total/section length and elevation.
    - Confirm the **total length** and **each stage length** against that table;
      they must not **drift** from the official figures or be invented. If a stage
      is split differently from the official stages, the summed sub-distances must
@@ -189,8 +227,11 @@ Rubric (each criterion 0–5, plus a verdict):
    direction recommendation.
 10. **Sightseeing / POI coverage** — each stage has at least one natural or
     historical highlight.
-11. **GPX availability** — a master GPX link is provided, and per-stage GPX
-    links (or a clear note on how to obtain/split them); no invented URLs.
+11. **GPX availability & correctness** — a master GPX plus per-stage GPX files
+    are **generated, saved, and verified** (valid track, correct endpoints,
+    length within ±10 % of the stated stage km). Linking unverified third-party
+    tracks without generating/checking files cannot score above 3/5; invented
+    URLs are an automatic Fail.
 12. **Not a previously-ridden route** (Donau Passau–Bratislava, Elbe
     Magdeburg–Prague, Inn St. Moritz–Passau).
 
@@ -210,9 +251,10 @@ Deliver a plan containing, in order:
    descent and where the steep sections are; recommended riding direction.
 4. **Stage table** — | Day | From → To | km | Ascent/Descent | Overnight town |
    Refreshment stops | Sightseeing / POI | GPX |.
-5. **GPX downloads** — a master GPX link for the whole route plus a per-stage
-   GPX link (or a note on how to split the master track if per-stage isn't
-   available).
+5. **GPX downloads** — a master GPX file plus one verified GPX file per stage,
+   saved next to the plan and linked by relative path, each annotated with its
+   measured length and source. If a verified file truly can't be produced, link
+   the best source and explain how to split it (and say it's unverified).
 6. **Per-stage detail** — for each stage, a short paragraph or mini-profile
    with its elevation sparkline and the natural/historical highlights.
 7. **Highlights & caveats** — scenery payoff, crowded sections to avoid,
@@ -227,7 +269,9 @@ Write the full plan to a Markdown (`.md`) file, not just inline chat text.
 - **File per route.** Create one `.md` file per planned route. Name it
   `<route-slug>-plan.md` (e.g. `drauradweg-plan.md`, `mainradweg-plan.md`).
 - **Location.** Save into the session `files/` folder by default, or a
-  user-specified directory if given. Tell the user the exact path written.
+  user-specified directory if given. Tell the user the exact path written. Save
+  the generated GPX files in a sibling `<route-slug>-gpx/` folder and reference
+  them by relative path from the plan.
 - **Self-contained.** The file must contain every "Output format" section
   above (summary, rail plan, whole-route elevation profile, stage table,
   GPX downloads, per-stage detail, highlights & caveats, judge scorecard) so it
@@ -250,4 +294,7 @@ Write the full plan to a Markdown (`.md`) file, not just inline chat text.
 - Don't end a stage at a distance that has no realistic lodging just to hit a
   round number — move the overnight to the nearest viable town.
 - Don't ignore train bike capacity; 6 bikes is the binding limit, not the seats.
+- Don't link a per-stage GPX without generating and verifying the file (valid
+  track, right endpoints, length within ±10 % of the stated stage km); never
+  claim an unverified or invented track is correct.
 - Don't re-propose routes the group has already ridden.
