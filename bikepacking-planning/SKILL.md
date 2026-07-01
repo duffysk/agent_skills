@@ -22,13 +22,37 @@ A skill for planning scenic, low-traffic, multi-day European cycle tours for a
 specific group. It encodes the group's hard constraints so every proposed route
 is realistic and immediately actionable.
 
-## The group (fixed assumptions)
+## The group (default profile — ALWAYS confirm via intake)
 
-- **Party size:** 6 adult cyclists riding together as one group.
+These are **defaults, not fixed facts.** At the start of every plan you **must
+ask** the group-profile intake questions (see "Intake questions") and override
+any of the values below with the user's answers. Never silently assume the
+defaults — confirm party size, who is riding (adults / children), and the
+maximum expected daily distance on flat terrain before sizing any stage.
+
+- **Party size:** default 6 cyclists riding together as one group — **confirm the
+  actual number** (it changes lodging room counts and train bike-reservation needs).
+- **Riders:** default all adults — **ask whether any are children**, because kids
+  cut the realistic daily distance, change the pace, and may need different lodging.
 - **Bikes:** loaded with panniers / bikepacking bags (touring weight, not racing light).
 - **Fitness:** strong, experienced road cyclists.
-- **Comfortable daily distance:** **100–120 km/day on flat terrain.**
+- **Comfortable daily distance:** default **100–120 km/day on flat terrain** —
+  **ask for the group's own maximum expected flat-day distance** and use that
+  answer to set the soft cap below (don't assume 111 km if they say otherwise).
   - Treat 100–120 km as the *flat* comfort range, not the maximum.
+  - **Target each stage at a soft cap of ~111 km/day** *(or the group's confirmed
+    maximum flat-day distance from intake, whichever they gave)*. Aim every riding
+    day at **roughly that cap or less**; this is the planning target the stages
+    should be balanced around, not the 120 km ceiling. If intake reveals children
+    or a lower stated maximum, **lower the cap accordingly** for every stage.
+  - **"Approximately" because stages must end where you can sleep.** The cap is a
+    target, not a hard wall: an overnight has to land on a town with bookable
+    lodging, so a stage may run a little over (or under) ~111 km when the nearest
+    viable town sits further along. Where the lodging towns are genuinely spaced
+    **wider than ~111 km apart** (e.g. the Drava's Lienz / Villach / Lavamünd at
+    ~117 km spacing), either add a riding day to get back under the target, or keep
+    the longer stage and **flag it explicitly as a documented geographic exception**
+    (overnight towns too far apart to split) — never silently exceed it.
   - Reduce the daily target when a stage has meaningful climbing, rough
     surface, headwind exposure, or many sightseeing stops.
 - **Lodging:** indoor only — guesthouses / pensions / private rooms booked via
@@ -57,12 +81,12 @@ flat, dense accommodation, scenic but **not overcrowded**.
    gets the group (and bikes) back to the **return city** (default Prague).
 3. **Bike capacity on trains.** Verify the relevant operators (ČD / DB / ÖBB /
    SŽ etc.) allow bikes on the chosen connections, and that there is capacity
-   for **6 bikes**. Bike spaces are limited (often only 5–8 per train) and
+   for the **confirmed number of bikes**. Bike spaces are limited (often only 5–8 per train) and
    usually require **reservation** — flag this explicitly and recommend booking
    as soon as reservations open (often ~6 months ahead).
 4. **Stages end where you can sleep.** Every stage must finish in (or within a
    short, easy ride of) a town/village that plausibly has bookable indoor
-   lodging for 6 people. Never end a stage in the middle of nowhere.
+   lodging for the confirmed party size. Never end a stage in the middle of nowhere.
 5. **Refreshment stops mid-stage.** Each stage should pass through towns or
    villages spaced so the group can stop for food/coffee/water roughly every
    25–40 km. Avoid long empty stretches with no services.
@@ -81,9 +105,22 @@ flat, dense accommodation, scenic but **not overcrowded**.
 
 ## Planning procedure
 
-0. **Intake questions (ask up front before proposing routes).** Confirm the
-   travel bookends, because they drive both the rail feasibility and how much
-   riding time is lost to transit:
+0. **Intake questions (ask up front before proposing routes).** Always begin by
+   confirming **who is riding** and **the travel bookends**, because together they
+   drive the rail feasibility, the lodging room counts, and how far the group can
+   realistically ride each day.
+
+   **Group profile (ask every time — never assume the defaults):**
+   - **"How many riders are in the group?"** (default 6 — confirm; affects lodging
+     room counts and the number of bike reservations needed on trains.)
+   - **"Are they all adults, or are any children riding?"** (default all adults —
+     if children are along, cut the daily distance, ease the pace, and check
+     family-suitable lodging.)
+   - **"What is the maximum daily distance you expect to ride on flat terrain?"**
+     (default 100–120 km — use the answer to set the per-stage soft cap; lower it
+     for climbing, rough surface, headwind, children, or many sightseeing stops.)
+
+   **Travel bookends:**
    - **"Which station/city will you depart from by train?"** (default Prague —
      confirm, don't assume.)
    - **"Which station/city do you need to return to?"** (may differ from the
@@ -102,9 +139,14 @@ flat, dense accommodation, scenic but **not overcrowded**.
    - **First day — usually a partial ride, not a write-off.** If the morning train
      reaches the start town around **midday/early afternoon**, the group can comfortably
      have lunch and still ride a **short half-stage of ~50–60 km** to the first
-     overnight that same day. Plan the start town and Day-1 overnight so this short
-     opening leg lands on a bookable town — don't burn the whole first day sitting on
-     arrival unless the transfer genuinely runs late.
+     overnight that same day. On flat terrain the group can comfortably do **more than
+     a half-stage** — e.g. on the Donauradweg they trained to Passau, started riding
+     around **1–2 PM and still rode ~70 km** to the first overnight the same day. Treat
+     ~50–60 km as a conservative floor and up to ~70 km as realistic on an easy, flat,
+     mostly-downhill profile; scale it down for a late arrival, climbing, or a rough
+     surface. Plan the start town and Day-1 overnight so this opening leg lands on a
+     bookable town — don't burn the whole first day sitting on arrival unless the
+     transfer genuinely runs late.
    - **Last day — a full stage almost always forces a finish-town overnight.** If the
      final riding day is a full **~100–120 km**, the group will realistically **arrive
      in the evening and miss any same-day train home**. Do **not** assume an "evening
@@ -232,9 +274,11 @@ reference. Treat unverified or failing files the same as a missing GPX.
 7. **Validate the rail bookends.** Confirm departure-city → start and finish →
    return-city train connections, journey times, the resulting travel-day
    count, and the **6-bike reservation** requirement.
-8. **Balance the stages.** Keep stages within the daily comfort range, front-
-   load or back-load lighter days around long travel days, and leave slack for
-   sightseeing in the marquee towns.
+8. **Balance the stages.** Aim each stage at the **~111 km soft cap** (see
+   "Comfortable daily distance"), front-load or back-load lighter days around long
+   travel days, and leave slack for sightseeing in the marquee towns. Where a stage
+   has to exceed ~111 km because the next bookable town is further on, either add a
+   riding day or flag it as a documented geographic exception.
 9. **Self-verify with an LLM-as-judge pass (mandatory).** Before presenting the
    plan, critique it against the rubric below and fix anything that fails. See
    "LLM-as-judge verification".
@@ -261,10 +305,16 @@ Rubric (each criterion 0–5, plus a verdict):
    finish-town overnight + next-morning train** — assuming a same-day "evening
    train home" after a full last day is a Fail; same-day return is only credible
    if the last stage is deliberately short and finishes by early afternoon.
-3. **6-bike capacity / reservation** explicitly checked and flagged.
-4. **Daily distances** within the 100–120 km flat comfort range, reduced
-   appropriately for climbing/terrain; no brutal or filler stages.
-5. **Every stage ends near bookable indoor lodging** for 6 people.
+3. **Bike capacity / reservation** for the **confirmed party size** explicitly
+   checked and flagged.
+4. **Daily distances** balanced around the **confirmed soft cap** (default ~111 km,
+   or the group's stated flat maximum), within their flat comfort range and
+   reduced appropriately for climbing/terrain; no
+   brutal or filler stages. A stage that **exceeds the confirmed cap** is a Warn unless it is
+   either unavoidable because the next bookable town is further on **and flagged as a
+   documented geographic exception**, or the route adds a day to stay under target;
+   silently planning stages above the confirmed cap without that justification is a Fail.
+5. **Every stage ends near bookable indoor lodging** for the confirmed party size.
 6. **Refreshment spacing** — services roughly every 25–40 km, no long voids.
 7. **Scenic & low-traffic** character; overcrowded sections flagged/avoided.
 8. **Distance figures verified against the OFFICIAL route website** (or another
@@ -302,6 +352,11 @@ Rubric (each criterion 0–5, plus a verdict):
     and why, and the stage km matches that variant. Silently following one option
     where the rider has a real signed choice is a Warn; misattributing distance to
     the wrong variant is a Fail.
+14. **Group profile confirmed via intake** — the plan states the **confirmed
+    number of riders**, whether **any are children**, and the **maximum flat-day
+    distance** the group gave, and the stage sizing/lodging/bike-reservation counts
+    are consistent with those answers. Proceeding on the default assumptions
+    (6 adults, ~111 km cap) **without having asked** is a Fail.
 
 Report a final verdict: **Approved**, **Approved with caveats**, or
 **Needs revision** (with the specific fixes required). If any hard-constraint
@@ -367,7 +422,10 @@ Write the full plan to a Markdown (`.md`) file, not just inline chat text.
   Main-Radweg is ~600 km from its springs but ~390 km Bamberg→Mainz).
 - Don't end a stage at a distance that has no realistic lodging just to hit a
   round number — move the overnight to the nearest viable town.
-- Don't ignore train bike capacity; 6 bikes is the binding limit, not the seats.
+- Don't plan stages above the **~111 km soft cap** without justification — balance
+  days around ~111 km; if the next bookable town forces a longer stage, either add a
+  riding day or flag it as a documented geographic exception, never silently exceed it.
+- Don't ignore train bike capacity; the number of bikes (confirmed party size) is the binding limit, not the seats.
 - Don't assume an "evening train home" after a full ~100–120 km final stage — the
   group will arrive late and miss it. Budget a **finish-town overnight + next-morning
   train**, or make the last day deliberately short. Likewise, don't waste a midday
